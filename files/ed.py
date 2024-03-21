@@ -64,7 +64,7 @@ while True:
                         if be.api.isdir(vr("src"), getcwd()) is not 0:
                             vr("src", None)
                     if vr("src") is not None:
-                        with be.api.fopen(vr("src")) as f:
+                        with be.api.fs.open(vr("src")) as f:
                             vrp("txbuf", f.readlines())
                             vr("bl", 0)
                             for pv[get_pid()]["linen"] in range(len(vr("txbuf"))):
@@ -127,7 +127,7 @@ while True:
                     vr("appending", True)
                 elif vr("recv")[0] == "w":
                     if len(vr("recv")) > 1:
-                        with be.api.fopen(vr("recv")[1], "w") as pv[get_pid()]["f"]:
+                        with be.api.fs.open(vr("recv")[1], "w") as pv[get_pid()]["f"]:
                             if vr("f") is not None:
                                 for pv[get_pid()]["line"] in vr("txbuf"):
                                     pv[get_pid()]["f"].write("{}\n".format(vr("line")))
