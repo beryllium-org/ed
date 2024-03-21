@@ -61,7 +61,7 @@ while True:
                         vr("src", None)
                     if vr("src") is not None:
                         term.write("loading")
-                        if be.api.isdir(vr("src"), getcwd()) is not 0:
+                        if be.api.fs.isdir(vr("src"), getcwd()) is not 0:
                             vr("src", None)
                     if vr("src") is not None:
                         with be.api.fs.open(vr("src")) as f:
